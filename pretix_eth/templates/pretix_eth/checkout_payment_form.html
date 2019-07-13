@@ -1,16 +1,30 @@
 {% load bootstrap3 %}
 <div class="form-horizontal">
-    {% if ETH_address %}
-      <div class="ETH-crypto-payment-details">
-        <p>Send {{ ETH_per_ticket }} ETH to {{ ETH_address }}</p>
-      </div>
-    {% endif %}
-    {% if DAI_address %}
-      <div class="ETH-crypto-payment-details">
-        <p>Send {{ DAI_per_ticket }} DAI to {{ DAI_address }}</p>
-      </div>
-    {% endif %}
-
-
-    {% bootstrap_form form layout='horizontal' %}
+  {% if ETH_address %}
+  <div class="ETH-crypto-payment-details">
+    <p>Send {{ ETH_per_ticket }} ETH to {{ ETH_address }}</p>
+    <a
+      href="https://checkout.web3connect.com/?currency=ETH&amount={{
+        ETH_per_ticket
+      }}&to={{ ETH_address }}&callbackUrl={{ request.path }}"
+      target="blank"
+      rel="noreferrer noopener"
+    >
+      <button type="button">Pay with Web3Connect</button>
+    </a>
+  </div>
+  {% endif %} {% if DAI_address %}
+  <div class="ETH-crypto-payment-details">
+    <p>Send {{ DAI_per_ticket }} DAI to {{ DAI_address }}</p>
+    <a
+      href="https://checkout.web3connect.com/?currency=DAI&amount={{
+        DAI_per_ticket
+      }}&to={{ DAI_address }}&callbackUrl={{ request.path }}"
+      target="blank"
+      rel="noreferrer noopener"
+    >
+      <button type="button">Pay with Web3Connect</button>
+    </a>
+  </div>
+  {% endif %} {% bootstrap_form form layout='horizontal' %}
 </div>
