@@ -44,7 +44,6 @@ extras_require['dev'] = (
 setup(
     name='pretix-eth-payment-plugin',
     version='1.0.2-jpittsrc7',
-    description='An ethereum payment provider plugin for pretix software',
     description='Ethereum payment provider plugin for pretix software',
     long_description=long_description,
     url='https://github.com/esPass/pretix-eth-payment-plugin',
